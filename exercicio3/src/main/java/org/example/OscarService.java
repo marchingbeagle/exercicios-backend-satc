@@ -7,8 +7,13 @@ import java.util.ArrayList;
 @Service
 public class OscarService {
     ArrayList<Indicacao> indicacoes = new ArrayList<>();
+
     public void adicionarIndicacao(Indicavel indicavel, String categoria){
-        if(indicavel.getElegivel()){
+        if(indicavel.getElegivel()) {
+            Short numeroDeIndicacoes = indicavel.getNumeroDeIndicacoes();
+            short novoNumeroDeIndicacoes = (short) (numeroDeIndicacoes + 1);
+            indicavel.setNumeroDeIndicacoes(novoNumeroDeIndicacoes);
+
             Indicacao indicacao = new Indicacao(indicavel, categoria);
             indicacoes.add(indicacao);
         } else{
@@ -17,6 +22,8 @@ public class OscarService {
     }
 
     public void mostrarListaDeIndicados(){
-        System.out.println(indicacoes);
+        for (Indicacao item : this.indicacoes) {
+            System.out.println(item);
+        }
     }
 }

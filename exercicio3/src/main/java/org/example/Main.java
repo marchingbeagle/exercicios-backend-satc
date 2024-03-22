@@ -6,9 +6,17 @@ public class Main {
     public static void main(String[] args){
         var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
 
-        Ator ator1 = context.getBean(Ator.class,"Erik", "Brasileiro");
+        Ator ator1 = context.getBean(Ator.class);
+        ator1.setNome("Erik");
+        ator1.setNacionalidade("Brasileiro");
+        ator1.setNumeroDeIndicacoes((short) 0);
+        ator1.setElegivel(true);
 
         OscarService oscarService = context.getBean(OscarService.class);
         oscarService.adicionarIndicacao(ator1, "Ator");
+        oscarService.adicionarIndicacao(ator1, "Ator");
+        oscarService.adicionarIndicacao(ator1, "Ator");
+        oscarService.adicionarIndicacao(ator1, "Ator");
+        oscarService.mostrarListaDeIndicados();
     }
 }

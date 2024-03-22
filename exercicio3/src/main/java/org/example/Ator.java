@@ -1,17 +1,21 @@
 package org.example;
 
-import org.springframework.context.annotation.Scope;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
 public class Ator implements Indicavel{
     private String nome;
     private String nacionalidade;
+    private Short numeroDeIndicacoes = 0;
+    private Boolean elegivel = false;
 
-    public Ator(String nome, String nacionalidade) {
+    @Autowired
+    public Ator(String nome, String nacionalidade, Short numeroDeIndicacoes, Boolean elegivel) {
         this.nome = nome;
         this.nacionalidade = nacionalidade;
+        this.numeroDeIndicacoes = numeroDeIndicacoes;
+        this.elegivel = elegivel;
     }
 
     public String getNome() {
@@ -31,20 +35,27 @@ public class Ator implements Indicavel{
     }
 
     @Override
-    public void setElegivel(Boolean e){
+    public Short getNumeroDeIndicacoes() {
+        return numeroDeIndicacoes;
     }
 
     @Override
-    public Boolean getElegivel(){
+    public void setNumeroDeIndicacoes(Short numeroDeIndicacoes) {
+        this.numeroDeIndicacoes = numeroDeIndicacoes;
+    }
+
+    @Override
+    public Boolean getElegivel() {
         return elegivel;
     }
 
     @Override
-    public void setNumeroDeIndicacoes(Short ni){
+    public void setElegivel(Boolean elegivel) {
+        this.elegivel = elegivel;
     }
 
     @Override
-    public Short getNumeroDeIndicacoes(){
-        return numeroDeIndicacoes;
+    public String toString() {
+        return "Nome: " + this.nome + " || " + "Indicações: " + this.numeroDeIndicacoes + " || ";
     }
 }

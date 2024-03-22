@@ -27,4 +27,9 @@ public class Indicacao {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    @Override
+    public String toString() {
+        return indicavel + categoria;
+    }
 }
