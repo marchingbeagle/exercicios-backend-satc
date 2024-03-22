@@ -53,4 +53,9 @@ public class Filme implements Indicavel{
     public void setElegivel(Boolean elegivel) {
         this.elegivel = elegivel;
     }
+
+    @Override
+    public String toString() {
+        return "Nome: " + this.nome + " || " + "Indicações: " + this.numeroDeIndicacoes + " || ";
+    }
 }

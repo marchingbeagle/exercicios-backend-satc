@@ -12,11 +12,19 @@ public class Main {
         ator1.setNumeroDeIndicacoes((short) 0);
         ator1.setElegivel(true);
 
+        Filme filme1 = context.getBean(Filme.class);
+        filme1.setNome("Avengers");
+        filme1.setGenero("Ação");
+        filme1.setNumeroDeIndicacoes((short) 0);
+        filme1.setElegivel(true);
+
         OscarService oscarService = context.getBean(OscarService.class);
         oscarService.adicionarIndicacao(ator1, "Ator");
         oscarService.adicionarIndicacao(ator1, "Ator");
-        oscarService.adicionarIndicacao(ator1, "Ator");
-        oscarService.adicionarIndicacao(ator1, "Ator");
+        
+        oscarService.adicionarIndicacao(filme1, "Filme");
+        oscarService.adicionarIndicacao(filme1, "Filme");
+        oscarService.adicionarIndicacao(filme1, "Filme");
         oscarService.mostrarListaDeIndicados();
     }
 }

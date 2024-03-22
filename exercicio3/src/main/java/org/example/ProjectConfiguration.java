@@ -12,6 +12,10 @@ public class ProjectConfiguration {
     }
 
     @Bean
+    public Filme filmeBean(){
+        return new Filme("John Doe", "USA", (short) 0, false);
+    }
+    @Bean
     public OscarService oscarService() {
         return new OscarService();
     }

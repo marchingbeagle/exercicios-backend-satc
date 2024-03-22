@@ -10,12 +10,21 @@ public class OscarService {
 
     public void adicionarIndicacao(Indicavel indicavel, String categoria){
         if(indicavel.getElegivel()) {
-            Short numeroDeIndicacoes = indicavel.getNumeroDeIndicacoes();
+            short numeroDeIndicacoes = indicavel.getNumeroDeIndicacoes();
             short novoNumeroDeIndicacoes = (short) (numeroDeIndicacoes + 1);
-            indicavel.setNumeroDeIndicacoes(novoNumeroDeIndicacoes);
 
-            Indicacao indicacao = new Indicacao(indicavel, categoria);
-            indicacoes.add(indicacao);
+            if (numeroDeIndicacoes == 0) {
+                indicavel.setNumeroDeIndicacoes(novoNumeroDeIndicacoes);
+
+                Indicacao indicacao = new Indicacao(indicavel, categoria);
+                indicacoes.add(indicacao);
+            } else{
+                for(Indicacao i : indicacoes){
+                    if(i.getIndicavel().equals(indicavel)){
+                        i.getIndicavel().setNumeroDeIndicacoes(novoNumeroDeIndicacoes);
+                    }
+                }
+            }
         } else{
             System.out.printf("Nao pode ser indicado");
         }
