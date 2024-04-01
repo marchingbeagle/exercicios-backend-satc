@@ -21,7 +21,7 @@ public class Main {
         OscarService oscarService = context.getBean(OscarService.class);
         oscarService.adicionarIndicacao(ator1, "Ator");
         oscarService.adicionarIndicacao(ator1, "Ator");
-        
+
         oscarService.adicionarIndicacao(filme1, "Filme");
         oscarService.adicionarIndicacao(filme1, "Filme");
         oscarService.adicionarIndicacao(filme1, "Filme");
